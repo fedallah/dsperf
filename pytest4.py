@@ -4,12 +4,12 @@ import sqlite3
 from datetime import datetime
 
 class InputFile:
-	def __init__(self, path)
+	def __init__(self, path):
 		self.path = path
 		try:
 			with open(self.path) as ifile:
 				first_val = ifile.readline()
-				isval = first_val.split(',', 11)
+				isval = first_val.count(',')
 				if ( len(isval) != 12 ):
 					raise AttributeError(' : Found ' + str(len(isval)) + ' fields in first line of input file at ' + self.path + ' where 12 expected.  This does not look like a valid file.')
 		except IOError:
@@ -17,7 +17,13 @@ class InputFile:
 	def dump(self):
 		with open(self.path) as ifile:
 			for line in ifile:
-				return line			
+				return line	
 
 class PerfObj(InputFile):
-	def __init__(self, raw_in)
+	def __init__(self, raw_in, ignore_err):
+		raw_list = raw_in.split(',', 11)
+		if ( len(raw_list) == 12 ):
+			ic = 0
+			for ival in raw_list:
+		else:
+			raise AttributeError('')
