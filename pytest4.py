@@ -14,8 +14,10 @@ class InputFile:
 					raise AttributeError(' : Found ' + str(len(isval)) + ' fields in first line of input file at ' + self.path + ' where 12 expected.  This does not look like a valid file.')
 		except IOError:
 			print('Could not open a file at this location.  Are you sure it exists?')
-	def dump():
-		
+	def dump(self):
+		with open(self.path) as ifile:
+			for line in ifile:
+				return line			
 
-class PerfObj:
+class PerfObj(InputFile):
 	def __init__(self, raw_in)
