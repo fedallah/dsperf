@@ -7,10 +7,15 @@ class InputFile:
 	def __init__(self, path)
 		self.path = path
 		try:
-			self.ifile = open(self.path)
+			with open(self.path) as ifile:
+				first_val = ifile.readline()
+				isval = first_val.split(',', 11)
+				if ( len(isval) != 12 ):
+					raise AttributeError(' : Found ' + str(len(isval)) + ' fields in first line of input file at ' + self.path + ' where 12 expected.  This does not look like a valid file.')
 		except IOError:
-			print "File does not exist or cannot be opened."
-		first_val = self.ifile.readline()
-		isval = first_val.split(',', 11)
-		if ( len(mo) != 12 ):
-			raise InvalidInFile
+			print('Could not open a file at this location.  Are you sure it exists?')
+	def dump():
+		
+
+class PerfObj:
+	def __init__(self, raw_in)
