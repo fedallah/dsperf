@@ -67,10 +67,9 @@ class PerfObj:
 		else:
 			raise AttributeError(' : Found ' + str(len(lu_input)) + ' fields in input string:\n' + u_input + '\n... where 12 expected on class \'PerfObj\', constructor method.  Invalid input.')
 			return None
-	def SingleDBInsert:
 
 class PerfGroup:
-	def __init__(self, whichdb):
+	def __init__(self, usedb=False):
 		if len(self.output) == 0:
 			self.output = ()
 			return True
@@ -93,3 +92,8 @@ class PerfGroup:
 		else:
 			raise ValueError(' : nothing to output.')
 	def DBInsert:
+
+class DSPerfDB:
+	def __init__(self, location=':memory:')
+		self.dbh = sqlite3.connect(location)
+		
