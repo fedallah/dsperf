@@ -63,10 +63,22 @@ class PerfObj:
 			self.dictout['max_IOPS'] = float(u_input[11])
 			if verbose:
 				print('VERBOSE: Output on PerfObj constructor is: ' + str(dictout) + ' : .')
-			return self.dictout
+			return True
 		else:
 			raise AttributeError(' : Found ' + str(len(lu_input)) + ' fields in input string:\n' + u_input + '\n... where 12 expected on class \'PerfObj\', constructor method.  Invalid input.')
 			return None
+	def CSVOut(printschema=False):
+		if printschema:
+			for k, v in self.dictout.items():
+				if not allkeys:
+					allkeys = '\"' + str(k) + '\"'
+				else:
+					allkeys = (allkeys + ',' + '\"' str(k) '\"')
+				
+			for k in allkeys:
+			
+	def DictOut():
+		return self.dictout
 
 class PerfGroup:
 	def __init__(self, usedb=False):
